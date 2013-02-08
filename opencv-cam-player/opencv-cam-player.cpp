@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h>
 
 
 using namespace std;
@@ -12,12 +13,13 @@ using namespace cv;
 
 
 
-int main( int argc, const char** argv )
+int main(int argc, const char** argv)
 {
     CvCapture* capture = 0;
     Mat frame, frameCopy, image;
+    int cam = (argc > 1 ? atoi(argv[1]) : 0);
 
-    capture = cvCaptureFromCAM(0);
+    capture = cvCaptureFromCAM(cam);
     if(!capture) cout << "No camera detected" << endl;
     cvNamedWindow( "result", 1 );
 
