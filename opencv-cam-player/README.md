@@ -12,7 +12,10 @@ Just run
 
     $ make opencv-cam-player
 
-Note: *you'll need OpenCV 2.3 to compile this*
+Note: *you'll need OpenCV 2.3 to compile this*.
+
+If you have trouble installing it, have a look at this [guide for
+Ubuntu](https://help.ubuntu.com/community/OpenCV)
 
 Usage
 -----
