@@ -3,5 +3,5 @@ OFLAGS=`pkg-config --libs --cflags opencv`
 
 
 opencv-cam-phototaker: opencv-cam-phototaker.cpp
-	$(C) $(OFLAGS) opencv-cam-phototaker.cpp -o opencv-cam-phototaker
+	$(C) opencv-cam-phototaker.cpp $(OFLAGS) -o opencv-cam-phototaker
 
