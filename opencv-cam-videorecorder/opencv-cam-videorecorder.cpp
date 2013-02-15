@@ -28,15 +28,14 @@ int main(int argc, const char** argv)
 
     if(capture) {
         cout << "We've got a camera!" << endl;
-        int FPS = cvGetCaptureProperty(capture, CV_CAP_PROP_FPS);
-        cout << "FPS: " << FPS << endl;
+        // int FPS = cvGetCaptureProperty(capture, CV_CAP_PROP_FPS);
 
         char filename[100];
         sprintf(filename, "video-%ld.avi", time(0));
 
         CvVideoWriter *writer = 0;
-        writer = cvCreateVideoWriter(filename, CV_FOURCC('M', 'P', '4', '2'),
-                                        FPS, cvSize(frame_width,frame_height), 1);
+        writer = cvCreateVideoWriter(filename, CV_FOURCC('D', 'I', 'V', 'X'),
+                                        30, cvSize(frame_width,frame_height), 1);
 
         cout << "Saving frames to file " << filename << endl;
         while (1) {
@@ -50,12 +49,9 @@ int main(int argc, const char** argv)
             else
                 flip(frame, frameCopy, 0);
 
+            cvWriteFrame(writer, iplImg);
             imshow("result", frame);
-            int c = waitKey(20);
-            cout << c << endl;
-            if (c == (int)'p' || c == 1048688) { // who knows why
-                imwrite(filename, frame);
-            }
+            cvWaitKey(0);
         }
     }
     cvDestroyWindow("result");
