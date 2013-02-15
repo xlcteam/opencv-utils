@@ -39,7 +39,7 @@ int main(int argc, const char** argv)
 
             imshow("result", frame);
             int c = waitKey(20);
-            if (c == 112) {
+            if (c == (int)'p') {
                 char filename[100];
                 sprintf(filename, "photo-%ld.jpg", time(0));
                 imwrite(filename, frame);
