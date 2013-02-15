@@ -26,6 +26,8 @@ int main(int argc, const char** argv)
 
     if(capture) {
         cout << "We've got a camera!" << endl;
+        int FPS = cvGetCaptureProperty(capture, CV_CAP_PROP_FPS);
+        cout << "FPS: " << FPS << endl;
         while (1) {
             IplImage* iplImg = cvQueryFrame( capture );
             frame = iplImg;
