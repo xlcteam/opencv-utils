@@ -39,6 +39,7 @@ int main(int argc, const char** argv)
 
             imshow("result", frame);
             int c = waitKey(20);
+            cout << c << endl;
             if (c == (int)'p') {
                 char filename[100];
                 sprintf(filename, "photo-%ld.jpg", time(0));
