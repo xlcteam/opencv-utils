@@ -23,6 +23,8 @@ int main(int argc, const char** argv)
     if(!capture) cout << "No camera detected" << endl;
     cvNamedWindow( "result", 1 );
 
+    cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH, 640);
+    cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT, 480);
 
     if(capture) {
         cout << "We've got a camera!" << endl;
