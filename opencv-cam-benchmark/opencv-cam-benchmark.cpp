@@ -18,8 +18,13 @@ int main(int argc, const char** argv)
     CvCapture* capture = 0;
     Mat frame, frameCopy, image;
     int cam = (argc > 1 ? atoi(argv[1]) : 0);
+    int width = (argc > 2 ? atoi(argv[2]) : 640);
+    int height = (argc > 3 ? atoi(argv[3]) : 480);
 
     capture = cvCaptureFromCAM(cam);
+    cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_WIDTH, width);
+    cvSetCaptureProperty(capture, CV_CAP_PROP_FRAME_HEIGHT, height);
+
     if(!capture) cout << "No camera detected" << endl;
 
     if(capture) {
