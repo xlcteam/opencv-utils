@@ -42,6 +42,8 @@ int main(int argc, const char** argv)
             else
                 flip(frame, frameCopy, 0);
 
+            i++;
+
             if (time(0) - start == 2.0) {
                 cout << "FPS: " << i/2.0 << endl;
                 i = 0;
